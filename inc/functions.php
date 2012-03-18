@@ -180,9 +180,35 @@ function listo_komentet( $news_id ){
 		echo $text;
 	}
 	
+/*
+*Ky funksion liston lajmet
+*/
+function listo_lajmet ( $echo = true ) {
+
+//Global ben te aksesuseshme array-n $faqet brenda funksionit
+global $db;
+$result =mysql_query("SELECT title,link, menu_order,type FROM pages WHERE type='news' ORDER BY menu_order ASC");
+$linket ='';
+
+while ($links=mysql_fetch_array($result))
+{
+$linket .='<li><a href="'.BASEURL .'/?page='.$links['link'].'">'.$links['title'].'</a></li>';
 
 
 
+}
+
+//echo $linket;
+
+if ($echo == true){
+
+echo $linket;
+}
+else{
+
+return $linket;
+}
+}
 
 
 
