@@ -5,12 +5,12 @@ if( isset( $_GET['dil'] ) ) {
 	unset( $_SESSION['hyr'] ); // Unset fshin variablen
 	setcookie('hyr', '', time() - 360 ); // Fshijme Cookie-n
 	$_SESSION['msg'] = 'Ju dolet me suksese nga faqja';
-	header('Location:http://localhost/banago/?page=login');
+	header('Location: ' . BASEURL . '/?page=login');
 	exit;	
 }
 
 if( !is_logged_in() ) {
-	header('Location: http://localhost/banago/?page=login');
+	header('Location: ' . BASEURL . '/?page=login');
 	exit;
 } 
 ?>
@@ -24,7 +24,7 @@ if( !is_logged_in() ) {
 		
 	} else { ?>
 
-	<div class="logout"><a href="http://localhost/banago/admin/?dil=1">Dil nga faqja</a></div>	
+	<div class="logout"><a href="<?php echo BASEURL; ?>/admin/?dil=1">Dil nga faqja</a></div>	
 
 	<?php
 	$user_id = $_SESSION['user_id']; 
@@ -35,9 +35,9 @@ if( !is_logged_in() ) {
 	<h2>Miresevejn <?php echo $username; ?>!</h2>
 	<p>Jeni logur me suksese.</p>
 
-	<a href="http://localhost/banago/admin/?faqja=faqet">Faqet</a> |
-	<a href="http://localhost/banago/admin/?faqja=news">Lajme</a> |
-	<a href="http://localhost/banago/admin/?faqja=profile">Profili</a>
+	<a href="<?php echo BASEURL; ?>/admin/?faqja=faqet">Faqet</a> |
+	<a href="<?php echo BASEURL; ?>/admin/?faqja=news">Lajme</a> |
+	<a href="<?php echo BASEURL; ?>/admin/?faqja=profile">Profili</a>
 	
 	<?php } ?>
 

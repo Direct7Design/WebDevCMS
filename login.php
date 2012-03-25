@@ -3,7 +3,7 @@
 	if( isset( $_COOKIE['hyr'] ) ) {
 
 		$_SESSION['hyr'] = true;
-		header('Location:http://localhost/banago/admin/');
+		header('Location:'. BASEURL .'/admin/');
 		exit;
 
 	}
@@ -29,7 +29,7 @@
 		if( $_POST['remember'] == 'on' ) {
 			setcookie('hyr', $_POST['username'] .'|'. $_POST['password'], time() + ( 60 * 60 ) );
 		}
-		header('Location:http://localhost/banago/admin/');
+		header('Location:'. BASEURL .'/admin/');
 	}
 	 
 } ?> 
